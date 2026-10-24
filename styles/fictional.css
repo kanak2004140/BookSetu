@@ -1,0 +1,701 @@
+/* ========================================
+   FICTIONAL CATEGORY PAGE STYLES
+   Category Filter & Online Reading
+   ======================================== */
+
+:root {
+    --category-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ========================================
+   CATEGORY HERO SECTION
+   ======================================== */
+
+.category-hero {
+    padding: 4rem 0 3rem;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    opacity: 1 !important;
+}
+
+.hero-content-category {
+    margin-bottom: 2rem;
+    opacity: 1 !important;
+}
+
+.category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.3;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    opacity: 1 !important;
+}
+
+.category-title .accent {
+    background: linear-gradient(135deg, var(--accent-green), var(--dark-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.category-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+    opacity: 1 !important;
+}
+
+/* ========================================
+   CATEGORY FILTERS SECTION
+   ======================================== */
+
+.category-section {
+    padding: 4rem 0;
+    position: relative;
+    z-index: 2;
+}
+
+.filters-wrapper {
+    margin-bottom: 3.5rem;
+}
+
+.filters-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.category-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+.filter-btn {
+    font-family: 'Poppins', sans-serif;
+    padding: 0.85rem 1.8rem;
+    border-radius: 50px;
+    border: 2px solid var(--border-color);
+    background: var(--white);
+    color: var(--text-dark);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--category-transition);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    white-space: nowrap;
+    box-shadow: var(--shadow-sm);
+}
+
+.filter-btn i {
+    font-size: 1.1rem;
+}
+
+.filter-btn:hover {
+    border-color: var(--accent-green);
+    color: var(--accent-green);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(168, 213, 186, 0.3);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--accent-green), var(--dark-green));
+    color: var(--white);
+    border-color: var(--dark-green);
+    box-shadow: 0 8px 30px rgba(168, 213, 186, 0.5);
+    transform: scale(1.05);
+}
+
+.filter-btn.active i {
+    animation: filterIconPulse 0.6s ease-out;
+}
+
+@keyframes filterIconPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ========================================
+   BOOKS GRID - CATEGORY PAGE
+   ======================================== */
+
+.books-grid-category {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2.5rem;
+    opacity: 1 !important;
+}
+
+/* Category-specific book card enhancements */
+.category-book-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--category-transition);
+    opacity: 0;
+    animation: cardPopIn 0.6s ease-out forwards;
+    position: relative;
+}
+
+@keyframes cardPopIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.category-book-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 50px rgba(168, 213, 186, 0.2);
+}
+
+.category-book-card.hide {
+    animation: cardFadeOut 0.3s ease-out forwards;
+}
+
+@keyframes cardFadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+}
+
+.category-book-image {
+    position: relative;
+    height: 320px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+}
+
+.category-book-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.category-book-card:hover .category-book-image img {
+    transform: scale(1.12);
+}
+
+.category-book-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 5;
+}
+
+.category-book-card:hover .category-book-overlay {
+    opacity: 1;
+}
+
+.category-book-info {
+    padding: 2rem 1.5rem;
+}
+
+.category-book-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--text-dark);
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.category-book-author {
+    color: var(--accent-green);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.category-book-category {
+    display: inline-block;
+    background: var(--primary-green);
+    color: var(--dark-green);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.category-book-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.category-stars {
+    color: #ffa500;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.category-price {
+    font-weight: 700;
+    color: var(--dark-green);
+    font-size: 1.1rem;
+}
+
+.category-book-description {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 1.3rem;
+    line-height: 1.6;
+    min-height: 2.8rem;
+}
+
+.category-book-footer {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.btn-read-online {
+    flex: 1;
+    background: linear-gradient(135deg, var(--accent-green), var(--dark-green));
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: var(--category-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.btn-read-online:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(168, 213, 186, 0.4);
+}
+
+.btn-read-online i {
+    font-size: 1rem;
+}
+
+.btn-add-to-cart {
+    background: var(--white);
+    color: var(--accent-green);
+    border: 2px solid var(--accent-green);
+    padding: 0.8rem 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: var(--category-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.btn-add-to-cart:hover {
+    background: var(--primary-green);
+    transform: scale(1.08);
+}
+
+/* ========================================
+   NO RESULTS STATE
+   ======================================== */
+
+.no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+    opacity: 1 !important;
+}
+
+.no-results-icon {
+    font-size: 4rem;
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+}
+
+.no-results-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.no-results-desc {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+/* ========================================
+   READING MODAL
+   ======================================== */
+
+.reading-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    padding: 2rem;
+}
+
+.reading-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.reading-modal {
+    background: var(--white);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 700px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+}
+
+.reading-modal-overlay.active .reading-modal {
+    transform: scale(1);
+}
+
+.modal-header {
+    padding: 2rem;
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: linear-gradient(135deg, rgba(168, 213, 186, 0.05), rgba(200, 230, 215, 0.05));
+}
+
+.modal-header > div {
+    flex: 1;
+}
+
+.modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin: 0;
+    font-weight: 700;
+}
+
+.modal-author {
+    color: var(--accent-green);
+    font-weight: 600;
+    margin: 0.5rem 0 0 0;
+    font-size: 0.95rem;
+}
+
+.modal-close {
+    background: var(--primary-green);
+    border: none;
+    color: var(--dark-green);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: var(--category-transition);
+    flex-shrink: 0;
+}
+
+.modal-close:hover {
+    background: var(--accent-green);
+    color: var(--white);
+    transform: rotate(90deg);
+}
+
+.modal-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+    background: var(--white);
+}
+
+.reading-area {
+    position: relative;
+}
+
+.book-content {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    letter-spacing: 0.3px;
+}
+
+.book-content p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.book-content p:first-letter {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--accent-green);
+}
+
+/* Scrollbar styling for modal */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: var(--border-color);
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--accent-green);
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-green);
+}
+
+.modal-footer {
+    padding: 1.5rem 2rem;
+    border-top: 2px solid var(--border-color);
+    background: linear-gradient(135deg, rgba(168, 213, 186, 0.05), rgba(200, 230, 215, 0.05));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.reading-note {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+#buyModalBtn {
+    margin-top: 0;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+    .category-filters {
+        gap: 0.8rem;
+    }
+
+    .filter-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .filter-btn i {
+        font-size: 0.9rem;
+    }
+
+    .books-grid-category {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.8rem;
+    }
+
+    .category-book-image {
+        height: 250px;
+    }
+
+    .category-book-info {
+        padding: 1.2rem 1rem;
+    }
+
+    .category-book-footer {
+        flex-direction: column;
+    }
+
+    .btn-add-to-cart {
+        width: 100%;
+    }
+
+    .reading-modal {
+        max-height: 90vh;
+    }
+
+    .modal-header {
+        padding: 1.5rem;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .reading-note {
+        width: 100%;
+    }
+
+    #buyModalBtn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-title {
+        font-size: 1.5rem;
+    }
+
+    .category-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .filters-title {
+        font-size: 1.2rem;
+    }
+
+    .category-filters {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .filter-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .books-grid-category {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .reading-modal {
+        max-height: 95vh;
+        margin: 1rem;
+    }
+
+    .modal-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .modal-close {
+        align-self: flex-end;
+    }
+
+    .category-book-footer {
+        gap: 0.5rem;
+    }
+}
+
+/* ========================================
+   ANIMATIONS & TRANSITIONS
+   ======================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes staggerSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.filter-btn {
+    animation: staggerSlideIn 0.5s ease-out;
+}
+
+.filter-btn:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.filter-btn:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.filter-btn:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.filter-btn:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+/* Smooth transitions during filter animations */
+.books-grid-category {
+    animation: fadeInUp 0.5s ease-out;
+}

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookSetu - Sell Your Books</title>
+    <style>html,body{opacity:1!important;background-color:#fafaf8!important;background-image:none!important;}</style>
+    <link rel="stylesheet" href="/styles/sell.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>BookSetu</h1>
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="padhAI.html">PadhAI</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="sell.html" class="active">Sell</a></li>
+                </ul>
+
+                <div class="search-wrapper">
+                    <input type="search" class="search-input" placeholder="Search books...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <button class="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Turn Your Books Into <span class="accent">Treasures</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Sell your pre-loved books to our community of readers. Get fair prices, reach book lovers, and declutter your shelves while making a difference.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="sell-section">
+        <div class="container">
+            <!-- Sell Your Book Section -->
+            <div class="sell-content">
+                <div class="section-card sell-card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-book"></i> Sell Your Book
+                        </h2>
+                        <p class="card-subtitle">List your pre-loved books in minutes</p>
+                    </div>
+
+                    <form id="sell-form" class="sell-form">
+                        <div class="form-group">
+                            <label for="book-name">Book Title</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-heading"></i>
+                                <input type="text" id="book-name" name="book-name" placeholder="Enter book title" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="author-name">Author</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user-edit"></i>
+                                    <input type="text" id="author-name" name="author-name" placeholder="Author name" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <div class="select-wrapper">
+                                    <i class="fas fa-list"></i>
+                                    <select id="category" name="category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="fictional">Fictional</option>
+                                        <option value="academics">Academics</option>
+                                        <option value="motivational">Motivational</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="mrp">Original Price (MRP)</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-tag"></i>
+                                    <input type="number" id="mrp" name="mrp" placeholder="₹" min="0.01" step="0.01" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="selling-price">Your Selling Price</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-rupee-sign"></i>
+                                    <input type="number" id="selling-price" name="selling-price" placeholder="₹" min="0.01" step="0.01" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="condition">Book Condition</label>
+                            <div class="condition-grid">
+                                <label class="condition-radio">
+                                    <input type="radio" name="condition" value="new" required>
+                                    <span class="condition-label">
+                                        <i class="fas fa-star"></i>
+                                        <strong>New</strong>
+                                        <small>Never read</small>
+                                    </span>
+                                </label>
+                                <label class="condition-radio">
+                                    <input type="radio" name="condition" value="like_new">
+                                    <span class="condition-label">
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <strong>Like New</strong>
+                                        <small>Barely used</small>
+                                    </span>
+                                </label>
+                                <label class="condition-radio">
+                                    <input type="radio" name="condition" value="good">
+                                    <span class="condition-label">
+                                        <i class="fas fa-book-open"></i>
+                                        <strong>Used</strong>
+                                        <small>Well read</small>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description (Optional)</label>
+                            <textarea id="description" name="description" placeholder="Add details about the book condition, annotations, etc." rows="4"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="book-image">Book Image</label>
+                            <div class="file-upload-wrapper">
+                                <input type="file" id="book-image" name="book-image" accept=".jpg,.jpeg,.png,.webp">
+                                <div class="file-upload-area">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Drag & drop your image or <span>click to browse</span></p>
+                                    <small>JPG, PNG, WebP up to 5MB</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="book-pdf">Book PDF (Optional)</label>
+                            <input type="file" id="book-pdf" name="book-pdf" accept=".pdf">
+                            <small>Lets readers preview the book and use AI summaries. Up to 50MB.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" id="is-rentable" name="is-rentable">
+                                <span>Also available for rent</span>
+                            </label>
+                            <div class="input-wrapper" id="rent-price-wrapper" style="display: none;">
+                                <i class="fas fa-rupee-sign"></i>
+                                <input type="number" id="rent-price" name="rent-price" placeholder="Rent price per rental" min="0.01" step="0.01">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <i class="fas fa-check-circle"></i> Post Your Book
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Sell With BookSetu?</h2>
+                <p>The easiest way to sell your books</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Quick Listing</h3>
+                    <p>List your books in seconds with our simple, intuitive form</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Fair Pricing</h3>
+                    <p>Set your own price and reach thousands of eager readers</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Safe Transactions</h3>
+                    <p>Secure payments and buyer protection for every sale</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Driven</h3>
+                    <p>Connect with book lovers and share your favorites</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Change Lives Through Books?</h2>
+                <p>Start selling today and join our growing community of book lovers</p>
+                <a href="#sell-form" class="btn btn-primary">Start Selling Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p>Email: <a href="mailto:support@booksetu.com">support@booksetu.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Help & Support</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">How to Sell</a></li>
+                        <li><a href="#">Pricing Guide</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="books.html">Browse Books</a></li>
+                        <li><a href="profile.html">My Account</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for book recommendations & selling tips</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-small">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 BookSetu. All rights reserved. A modern digital library platform.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="/public/api-service.js"></script>
+    <script src="/public/script.js"></script>
+    <script src="/public/sell-script.js"></script>
+</body>
+</html>

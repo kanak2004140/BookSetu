@@ -1,0 +1,83 @@
+/* Cart, orders/rentals and order-confirmation pages */
+
+/* Cart */
+.empty-cart { text-align: center; padding: 60px 20px; }
+.empty-cart i { font-size: 64px; color: #a8d5ba; margin-bottom: 20px; }
+.cart-items, .cart-summary { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+.cart-item { display: flex; align-items: center; gap: 20px; padding: 20px; border-bottom: 1px solid #eee; }
+.cart-item-image { width: 100px; height: 150px; border-radius: 4px; overflow: hidden; }
+.cart-item-image img { width: 100%; height: 100%; object-fit: cover; }
+.cart-item-details { flex: 1; }
+.cart-item-details h4 { margin: 0 0 5px; }
+.cart-item-details .author { color: #666; font-size: 0.9em; }
+.cart-item-details .condition { color: #999; font-size: 0.85em; }
+.cart-item-quantity { display: flex; align-items: center; gap: 10px; }
+.qty-btn { width: 30px; height: 30px; border: 1px solid #ddd; background: white; border-radius: 4px; cursor: pointer; }
+.qty-btn:hover { background: #f0f0f0; }
+.remove-btn { background: #ff6b6b; color: white; border: none; padding: 10px; border-radius: 4px; cursor: pointer; }
+.remove-btn:hover { background: #ff5252; }
+.cart-summary { padding: 30px; max-width: 400px; margin-left: auto; }
+.summary-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; }
+.summary-row.total { font-weight: bold; font-size: 1.2em; border-bottom: none; margin-top: 10px; }
+.btn-block { width: 100%; margin-top: 20px; }
+
+/* Orders & rentals */
+.orders-tabs { display: flex; gap: 20px; margin-bottom: 40px; border-bottom: 2px solid #eee; }
+.tab-btn { padding: 12px 24px; background: none; border: none; font-size: 1em; font-weight: 600; color: #999; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; }
+.tab-btn:hover { color: #333; }
+.tab-btn.active { color: #6fa582; border-bottom-color: #6fa582; }
+.order-card, .rental-card { background: white; border-radius: 8px; padding: 24px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); }
+.order-header, .rental-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.order-info h3, .rental-header h3 { margin: 0; font-size: 1.2em; }
+.order-info .date { color: #999; font-size: 0.9em; margin: 5px 0 0; }
+.order-total .amount { font-size: 1.5em; font-weight: 700; color: #6fa582; }
+.order-status { margin-bottom: 15px; }
+.status-badge, .detail-row .value[class*="status-"] { display: inline-block; padding: 6px 12px; border-radius: 20px; font-size: 0.85em; font-weight: 600; }
+.status-pending { background: #fff3cd; color: #856404; }
+.status-paid, .status-completed { background: #d4edda; color: #155724; }
+.status-shipped, .status-active { background: #cfe2ff; color: #084298; }
+.status-returned, .status-cancelled { background: #e2e3e5; color: #383d41; }
+.status-overdue { background: #f8d7da; color: #842029; }
+.order-items { padding: 15px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin-bottom: 15px; }
+.order-item-row { display: flex; justify-content: space-between; padding: 8px 0; }
+.order-item-row .item-title { flex: 1; color: #333; }
+.order-more { color: #6fa582; font-weight: 600; padding: 8px 0; font-size: 0.9em; }
+.order-actions, .rental-actions { display: flex; gap: 12px; }
+.rental-details { padding: 20px; background: #f9f9f9; border-radius: 6px; margin-bottom: 20px; }
+.detail-item { display: flex; justify-content: space-between; padding: 8px 0; }
+.detail-item .label { color: #666; font-weight: 600; }
+.empty-state { text-align: center; padding: 60px 30px; background: white; border-radius: 8px; }
+.empty-state i { font-size: 64px; color: #ccc; margin-bottom: 20px; }
+.empty-state h3 { margin: 0 0 10px; color: #333; }
+.empty-state p { color: #999; margin-bottom: 30px; }
+.item-qty { margin: 0 15px; color: #666; }
+.item-price { font-weight: 600; color: #333; min-width: 100px; text-align: right; }
+
+/* Order confirmation */
+.confirmation-container { max-width: 700px; margin: 60px auto; }
+.confirmation-card, .error-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); }
+.confirmation-header { padding: 40px 30px; text-align: center; background: linear-gradient(135deg, #6fa582, #a8d5ba); color: white; }
+.confirmation-header i { font-size: 64px; margin-bottom: 20px; display: block; }
+.confirmation-header h1 { margin: 0 0 10px; font-size: 2.2em; }
+.confirmation-header p { margin: 0; opacity: 0.9; }
+.confirmation-details, .confirmation-items { padding: 30px; border-bottom: 1px solid #eee; }
+.detail-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #f5f5f5; }
+.detail-row:last-child { border-bottom: none; }
+.detail-row .label { font-weight: 600; color: #666; }
+.detail-row .value.price { font-size: 1.3em; font-weight: 700; color: #6fa582; }
+.confirmation-items h2 { margin: 0 0 20px; font-size: 1.3em; }
+.order-item-summary { display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #f9f9f9; border-radius: 8px; margin-bottom: 12px; }
+.item-info { flex: 1; }
+.item-info h4 { margin: 0 0 5px; }
+.item-info .author { color: #666; font-size: 0.9em; }
+.confirmation-actions { padding: 30px; display: flex; gap: 15px; border-bottom: 1px solid #eee; }
+.confirmation-actions .btn { flex: 1; text-align: center; }
+.confirmation-info { padding: 30px; }
+.confirmation-info h3 { margin: 0 0 20px; }
+.confirmation-info ul { list-style: none; padding: 0; margin: 0; }
+.confirmation-info li { padding: 12px 0; display: flex; align-items: center; gap: 15px; border-bottom: 1px solid #f5f5f5; }
+.confirmation-info li i, .confirmation-info a { color: #6fa582; text-decoration: none; }
+.confirmation-info .info-note { margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; color: #666; font-size: 0.95em; }
+.error-card { padding: 60px 30px; text-align: center; }
+.error-card i { font-size: 64px; color: #ff6b6b; margin-bottom: 20px; display: block; }
+.error-card h2 { margin: 0 0 30px; color: #333; }

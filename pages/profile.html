@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - BookSetu</title>
+    <style>html,body{opacity:1!important;background-color:#fafaf8!important;background-image:none!important;}</style>
+    <link rel="stylesheet" href="/styles/profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>BookSetu</h1>
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="padhAI.html">PadhAI</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                </ul>
+
+                <div class="search-wrapper">
+                    <input type="search" class="search-input" placeholder="Search books...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <button class="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Hero Section -->
+    <section class="profile-hero" id="profile">
+        <div class="container">
+            <div class="profile-header-card">
+                <div class="profile-cover"></div>
+
+                <div class="profile-main">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <div class="profile-info">
+                        <h1 class="profile-name">Username</h1>
+                        <p class="profile-email">
+                            <i class="fas fa-envelope"></i>
+                            
+                        </p>
+
+                        <div class="profile-stats">
+                            <div class="stat"><h3 id="statListed">0</h3><p>Books Listed</p></div>
+                            <div class="stat"><h3 id="statOrders">0</h3><p>Orders</p></div>
+                            <div class="stat"><h3 id="statRentals">0</h3><p>Rentals</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Activity Section -->
+    <section class="user-activity">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Library</h2>
+                <p>Manage your books and reading journey</p>
+            </div>
+
+            <div class="activity-grid">
+                <div class="activity-card">
+                    <div class="activity-header"><i class="fas fa-book"></i><h3>Sell a Book</h3></div>
+                    <div class="activity-content">
+                        <p class="activity-desc">List a book for sale or rent</p>
+                        <a href="sell.html" class="activity-link">List a Book <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-header"><i class="fas fa-shopping-bag"></i><h3>Orders &amp; Rentals</h3></div>
+                    <div class="activity-content">
+                        <p class="activity-desc">Track your purchases and rentals</p>
+                        <a href="orders.html" class="activity-link">View Orders <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-header"><i class="fas fa-compass"></i><h3>Browse Books</h3></div>
+                    <div class="activity-content">
+                        <p class="activity-desc">Find your next read</p>
+                        <a href="books.html" class="activity-link">Browse <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logout Section -->
+    <section class="logout-section">
+        <div class="container">
+            <div class="logout-card">
+                <div class="logout-content">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <h3>Want to sign out?</h3>
+                    <p>You can log back in anytime with your credentials</p>
+                </div>
+                <button class="btn btn-logout">Logout</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p>Email: <a href="mailto:support@booksetu.com">support@booksetu.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Help & Support</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="#">Chatbot Help</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="books.html">Fiction</a></li>
+                        <li><a href="orders.html">Library</a></li>
+                        <li><a href="sell.html">Sell</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Policies</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for book recommendations</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-small">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 BookSetu. All rights reserved. A modern digital library platform.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="/public/api-service.js"></script>
+    <script src="/public/script.js"></script>
+    <script src="/public/profile-script.js"></script>
+</body>
+
+</html>

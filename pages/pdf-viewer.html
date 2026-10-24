@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer - BookSetu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pdf-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .book-title {
+            font-size: 18px;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 500px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .pdf-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .control-btn:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .control-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .page-input {
+            width: 50px;
+            padding: 6px 8px;
+            border: none;
+            border-radius: 3px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .page-info {
+            color: white;
+            font-size: 14px;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .download-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .download-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .pdf-container {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background: #e5e5e5;
+        }
+
+        #pdf-viewer {
+            max-width: 900px;
+            width: 100%;
+            height: auto;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 5px;
+            overflow: auto;
+        }
+
+        .pdf-canvas {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 40px;
+            color: #667eea;
+            font-size: 18px;
+        }
+
+        .spinner {
+            width: 30px;
+            height: 30px;
+            border: 4px solid #667eea;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            color: #e74c3c;
+            padding: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .zoom-controls {
+            display: flex;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 10px;
+            border-radius: 5px;
+        }
+
+        .zoom-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 6px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .zoom-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .zoom-level {
+            color: white;
+            font-size: 14px;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .book-title {
+                max-width: 200px;
+                font-size: 16px;
+            }
+
+            .pdf-controls {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .header-right {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pdf-header">
+        <div class="header-left">
+            <button class="back-btn" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <span class="book-title" id="bookTitle">Loading...</span>
+        </div>
+        <div class="header-right">
+            <div class="zoom-controls">
+                <button class="zoom-btn" onclick="zoomOut()">
+                    <i class="fas fa-search-minus"></i>
+                </button>
+                <span class="zoom-level" id="zoomLevel">100%</span>
+                <button class="zoom-btn" onclick="zoomIn()">
+                    <i class="fas fa-search-plus"></i>
+                </button>
+            </div>
+            <div class="pdf-controls">
+                <button class="control-btn" id="prevBtn" onclick="previousPage()" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <input type="number" class="page-input" id="pageInput" value="1" min="1" onchange="goToPage()" onkeypress="handleEnter(event)">
+                <span class="page-info" id="pageInfo">/ 1</span>
+                <button class="control-btn" id="nextBtn" onclick="nextPage()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <button class="download-btn" id="downloadBtn" onclick="downloadPDF()" title="Download PDF">
+                <i class="fas fa-download"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="pdf-container">
+        <div id="pdf-viewer">
+            <div class="loading">
+                <div class="spinner"></div>
+                <span>Loading PDF...</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="/public/api-service.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        const params = new URLSearchParams(window.location.search);
+        const bookId = params.get('book');
+        const pdfUrl = `${API_BASE_URL}/books/${encodeURIComponent(bookId)}/pdf`;
+        const authHeaders = { Authorization: `Bearer ${localStorage.getItem('access_token')}` };
+
+        let pdfDoc = null;
+        let currentPage = 1;
+        let zoomLevel = 1;
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            if (!isLoggedIn()) return redirectToLogin();
+            document.getElementById('bookTitle').textContent = params.get('title') || 'Book';
+            try {
+                pdfDoc = await pdfjsLib.getDocument({ url: pdfUrl, httpHeaders: authHeaders }).promise;
+                document.getElementById('pageInfo').textContent = `/ ${pdfDoc.numPages}`;
+                document.getElementById('pageInput').max = pdfDoc.numPages;
+                await renderPage(1);
+            } catch (error) {
+                showError('Failed to load PDF. It may not be available for this book.');
+            }
+        });
+
+        async function renderPage(pageNum) {
+            try {
+                const page = await pdfDoc.getPage(pageNum);
+                const viewport = page.getViewport({ scale: 1.5 * zoomLevel });
+                const canvas = document.createElement('canvas');
+                canvas.className = 'pdf-canvas';
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+                document.getElementById('pdf-viewer').replaceChildren(canvas);
+                currentPage = pageNum;
+                document.getElementById('pageInput').value = pageNum;
+                document.getElementById('prevBtn').disabled = pageNum <= 1;
+                document.getElementById('nextBtn').disabled = pageNum >= pdfDoc.numPages;
+            } catch (error) {
+                showError('Failed to render page');
+            }
+        }
+
+        const goToPage = () => {
+            const pageNum = parseInt(document.getElementById('pageInput').value);
+            if (pageNum >= 1 && pageNum <= pdfDoc.numPages) renderPage(pageNum);
+        };
+        const nextPage = () => currentPage < pdfDoc.numPages && renderPage(currentPage + 1);
+        const previousPage = () => currentPage > 1 && renderPage(currentPage - 1);
+        const handleEnter = event => event.key === 'Enter' && goToPage();
+
+        function setZoom(level) {
+            zoomLevel = Math.min(3, Math.max(0.5, level));
+            document.getElementById('zoomLevel').textContent = Math.round(zoomLevel * 100) + '%';
+            renderPage(currentPage);
+        }
+        const zoomIn = () => setZoom(zoomLevel + 0.2);
+        const zoomOut = () => setZoom(zoomLevel - 0.2);
+
+        async function downloadPDF() {
+            const response = await fetch(pdfUrl, { headers: authHeaders });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(await response.blob());
+            link.download = `${params.get('title') || 'book'}.pdf`;
+            link.click();
+            URL.revokeObjectURL(link.href);
+        }
+
+        const goBack = () => window.history.back();
+
+        function showError(message) {
+            document.getElementById('pdf-viewer').innerHTML =
+                `<div class="error-message"><i class="fas fa-exclamation-circle"></i><p>${escapeHtml(message)}</p></div>`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookSetu - Digital Library App</title>
+    <style>html,body{opacity:1!important;background-color:#fafaf8!important;background-image:none!important;}</style>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>BookSetu</h1>
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="padhAI.html">PadhAI</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                </ul>
+
+                <div class="search-wrapper">
+                    <input type="search" class="search-input" placeholder="Search books...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <button class="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Discover Your Next <span class="accent">Favorite Book</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Explore our curated collection of fiction, academics, and bestsellers. Buy, sell, and share your reading journey with our vibrant community.
+                </p>
+                <div class="hero-buttons">
+                    <a href="login.html" class="btn btn-primary">Start Reading</a>
+                    <a href="#books" class="btn btn-secondary">Browse Books</a>
+                </div>
+            </div>
+
+            <div class="hero-features">
+                <div class="feature-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Vast Collection</h3>
+                    <p>Thousands of books to explore</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-exchange-alt"></i>
+                    <h3>Buy & Sell</h3>
+                    <p>Exchange books with community</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Community</h3>
+                    <p>Connect with book lovers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendations Section -->
+    <section class="recommendations" id="books">
+        <div class="container">
+            <div class="section-header">
+                <h2>Recommended for You</h2>
+                <p>Fresh listings from our sellers</p>
+            </div>
+
+            <div class="books-grid" id="recommendedGrid"></div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Reading Journey?</h2>
+                <p>Join thousands of book lovers in our community</p>
+                    <a href="login.html" class="btn btn-primary">Login to Your Account</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p>Email: <a href="mailto:support@booksetu.com">support@booksetu.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Help & Support</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="#">Chatbot Help</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#fiction">Books</a></li>
+                        <li><a href="#academics"></a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Policies</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for book recommendations</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-small">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 BookSetu. All rights reserved. A modern digital library platform.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    <script src="/public/api-service.js"></script>
+    <script src="/public/script.js"></script>
+</body>
+</html>

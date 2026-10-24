@@ -1,0 +1,22 @@
+# Secrets
+.env
+backend/.env
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# Local data and user uploads
+*.db
+uploads/images/
+uploads/pdfs/
+
+# Logs, downloads, OS/IDE files
+*.log
+*.crdownload
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

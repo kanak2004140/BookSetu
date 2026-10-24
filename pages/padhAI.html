@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PadhAI - Your Personal Book Companion | BookSetu</title>
+    <style>html,body{opacity:1!important;background-color:#fafaf8!important;background-image:none!important;}</style>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/padhAI.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>BookSetu</h1>
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="padhAI.html">PadhAI</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                </ul>
+
+                <div class="search-wrapper">
+                    <input type="search" class="search-input" placeholder="Search books...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <button class="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="padhai-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    PadhAI – Your <span class="accent">Personal Book Companion</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Discover your next favorite book, explore authors, discuss genres, and get personalized recommendations. Your literary AI friend, available 24/7.
+                </p>
+                <div class="hero-highlight">
+                    <i class="fas fa-book"></i>
+                    <p>Powered by literary AI • Explore thousands of books instantly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Container Section -->
+    <section class="padhai-chat-section">
+        <div class="container">
+            <div class="chat-wrapper">
+                <!-- Chat Messages -->
+                <div class="chat-container">
+                    <div class="messages-area" id="messagesArea">
+                        <!-- Welcome Message -->
+                        <div class="message bot-message welcome-message">
+                            <div class="message-bubble">
+                                <p>� Hello, book lover! I'm PadhAI, your personal literary companion. Ask me about book recommendations, authors, genres, or anything related to reading. What book adventure shall we start today?</p>
+                            </div>
+                            <span class="message-time">Just now</span>
+                        </div>
+                    </div>
+
+                    <!-- Chat Input -->
+                    <div class="chat-input-wrapper">
+                        <div class="input-group">
+                            <input 
+                                type="text" 
+                                id="userInput" 
+                                class="chat-input" 
+                                placeholder="Ask your question here..."
+                                autocomplete="off"
+                            >
+                            <button class="send-btn" id="sendBtn" title="Send message">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <p class="input-hint">Press Enter or click the button to send</p>
+                    </div>
+                </div>
+
+                <!-- Quick Suggestions Sidebar -->
+                <div class="suggestions-sidebar">
+                    <h3 class="suggestions-title">Quick Topics</h3>
+                    <div class="suggestions-list">
+                        <button class="suggestion-btn" data-question="Recommend me a mystery thriller novel">
+                            <i class="fas fa-magnifying-glass"></i>
+                            <span>Mystery Thrillers</span>
+                        </button>
+                        <button class="suggestion-btn" data-question="Tell me about the Harry Potter series">
+                            <i class="fas fa-wand-magic-sparkles"></i>
+                            <span>Harry Potter</span>
+                        </button>
+                        <button class="suggestion-btn" data-question="What are the best science fiction books?">
+                            <i class="fas fa-rocket"></i>
+                            <span>Sci-Fi Books</span>
+                        </button>
+                        <button class="suggestion-btn" data-question="Suggest some romance novels for beginners">
+                            <i class="fas fa-heart"></i>
+                            <span>Romance Novels</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="padhai-features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose PadhAI?</h2>
+                <p>Your ultimate reading companion</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Smart Recommendations</h3>
+                    <p>Get personalized book suggestions based on your reading preferences and favorites</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>24/7 Availability</h3>
+                    <p>Discover new books anytime, anywhere. Your literary guide never sleeps</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Author & Genre Insights</h3>
+                    <p>Learn about beloved authors, explore genres, and understand what makes books special</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Discussion Ready</h3>
+                    <p>Discuss plot twists, characters, and themes with our intelligent book AI companion</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>About PadhAI</h4>
+                    <p>PadhAI is BookSetu's AI-powered book companion, designed to help readers discover their next favorite book and deepen their love of literature.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 BookSetu - PadhAI. Discover, read, and share your literary journey.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="/public/api-service.js"></script>
+    <script src="/public/script.js"></script>
+    <script src="/public/padhai-script.js"></script>
+</body>
+</html>

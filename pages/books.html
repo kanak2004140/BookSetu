@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiction & Categories - BookSetu</title>
+    <style>html,body{opacity:1!important;background-color:#fafaf8!important;background-image:none!important;}</style>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/fictional.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>BookSetu</h1>
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="books.html" class="active">Books</a></li>
+                    <li><a href="padhAI.html">PadhAI</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                </ul>
+
+                <div class="search-wrapper">
+                    <input type="search" class="search-input" id="searchInput" placeholder="Search books...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <button class="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section for Category Page -->
+    <section class="category-hero">
+        <div class="container">
+            <div class="hero-content-category">
+                <h1 class="category-title">
+                    Explore Books by <span class="accent">Category</span>
+                </h1>
+                <p class="category-subtitle">
+                    Discover curated collections across Academics, Fiction, and Motivational genres. Find your next favorite read.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filters Section -->
+    <section class="category-section">
+        <div class="container">
+            <div class="filters-wrapper">
+                <h2 class="filters-title">Filter by Category</h2>
+                <div class="category-filters">
+                    <button class="filter-btn active" data-category="all">
+                        <i class="fas fa-book"></i>
+                        All Books
+                    </button>
+                    <button class="filter-btn" data-category="fictional">
+                        <i class="fas fa-pen-fancy"></i>
+                        Fictional
+                    </button>
+                    <button class="filter-btn" data-category="academics">
+                        <i class="fas fa-graduation-cap"></i>
+                        Academics
+                    </button>
+                    <button class="filter-btn" data-category="motivational">
+                        <i class="fas fa-heart"></i>
+                        Motivational
+                    </button>
+                </div>
+            </div>
+
+            <!-- Books Grid -->
+            <div class="books-grid-category" id="booksGrid">
+                <!-- Books will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Reading Modal -->
+    <div class="reading-modal-overlay" id="readingModalOverlay">
+        <div class="reading-modal" id="readingModal">
+            <div class="modal-header">
+                <div>
+                    <h2 id="modalTitle" class="modal-title">Book Title</h2>
+                    <p id="modalAuthor" class="modal-author">Author Name</p>
+                </div>
+                <button class="modal-close" id="closeModalBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <div class="reading-area">
+                    <div id="modalContent" class="book-content">
+                        <!-- Sample reading content -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary btn-small" id="buyModalBtn">Buy Full Book</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p>Email: <a href="mailto:support@booksetu.com">support@booksetu.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Help & Support</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="#">Chatbot Help</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="books.html">Categories</a></li>
+                        <li><a href="orders.html">Library</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Policies</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for book recommendations</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-small">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 BookSetu. All rights reserved. A modern digital library platform.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="/public/api-service.js"></script>
+    <script src="/public/script.js"></script>
+    <script src="/public/books-script.js"></script>
+</body>
+</html>
